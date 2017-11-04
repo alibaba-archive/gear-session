@@ -24,6 +24,11 @@ func (s *Session) Save() error {
 	return s.GetStore().Save(s)
 }
 
+// Destroy is helpful method
+func (s *Session) Destroy() error {
+  return s.GetStore().Destroy(s)
+}
+
 var gearSession = session.New("Sess", sessions.New(), func() sessions.Sessions {
 	return &Session{Meta: &sessions.Meta{}}
 })
